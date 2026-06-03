@@ -1,0 +1,530 @@
+/* 
+  REFINED STYLES.CSS
+  ------------------
+  1. Global Reset & Body
+  2. Navbar
+  3. Hero Section
+  4. About Section
+  5. Features Section
+  6. Chat (Bubble UI)
+  7. Page Container
+  8. Footer
+  9. Responsive
+*/
+
+/* 1. GLOBAL RESET & BODY */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #cceeff, #66b2ff);
+  color: #333;
+  /* A subtle transition for color changes if needed */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 2. NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 51, 102, 0.9);
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+.navbar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.navbar a {
+  color: #fff;
+  margin-left: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* PAGE CONTAINER (Common for all pages) */
+.page-container {
+  max-width: 500px;
+  margin: 80px auto 40px auto;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Input Fields */
+.page-container input {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Buttons */
+.page-container button {
+  background: #0099ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.page-container button:hover {
+  background: #007acc;
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  margin-top: 0.5rem;
+}
+
+/* Links */
+.page-container a {
+  color: #0099ff;
+  font-weight: 500;
+}
+.page-container a:hover {
+  text-decoration: underline;
+}
+
+
+/* 3. HERO SECTION */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  /* Replace with your actual hero image in public/hero.jpg */
+  background: url('./assets/hero.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffe29a;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 31, 44, 0.5);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+.hero-content h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.hero-btn {
+  background: #00bfff;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.hero-btn:hover {
+  background: #007abf;
+}
+
+/* 4. ABOUT SECTION */
+.about-section {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 2rem;
+  text-align: center;
+}
+.about-section h3 {
+  margin-top: 0;
+}
+
+/* 5. FEATURES SECTION */
+.features-section {
+  background: #fdfdfd;
+  padding: 2rem;
+  text-align: center;
+}
+.features-section h3 {
+  margin-top: 0;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.feature-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  color: #333;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.feature-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+.feature-card h4 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+/* 6. CHAT (BUBBLE UI) */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  background: #f0f9ff;      /* Light background for the chat area */
+  padding: 1rem;
+  border-radius: 10px;
+  min-height: 300px;
+  max-height: 500px;
+  overflow-y: auto;         /* Allows scrolling if messages exceed container height */
+}
+.chat-bubble {
+  background: #fff;         /* AI bubble color */
+  margin: 0.5rem 0;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  max-width: 70%;
+  word-wrap: break-word;    /* Wraps text if it's too long */
+}
+.user-bubble {
+  background: #b3e5fc;      /* Light blue for user messages */
+  align-self: flex-end;     /* Align user bubble to the right */
+}
+.chat-input-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.chat-input-row input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.chat-input-row button {
+  background: #0099ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+.chat-input-row button:hover {
+  background: #007acc;
+}
+/* Additional styles for Virtual Muscat Page (optional) */
+.page-container input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+.page-container {
+  max-width: 900px;
+  margin: 80px auto 40px auto;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.page-container button {
+  background: #0099ff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.page-container button:hover {
+  background: #007acc;
+}
+
+.upload-area {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.page-container button {
+  background: #66ccff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.page-container button:hover {
+  background: #33b5e5;
+}
+/* OUTFIT & COSMETICS MATCHING PAGE */
+
+/* Container for the input fields and labels */
+.outfit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Label styling (optional if you want consistent labels) */
+.outfit-form label {
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+/* Input fields for style, body type, occasion */
+.outfit-form input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+/* “Get Recommendations” button */
+.outfit-form button {
+  background: #0099ff;
+  color: #bc4444;
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.outfit-form button:hover {
+  background: #26ed3a;
+}
+
+/* Section to display AI recommendations */
+.recommendations-box {
+  margin-top: 1rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* For error messages */
+.error-message {
+  color: red;
+  margin-top: 0.5rem;
+}
+
+/* Expert Tips & Articles Page */
+.expert-form {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.expert-form label {
+  font-weight: 500;
+}
+
+.expert-form input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.expert-form button {
+  background: #ff9900;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.expert-form button:hover {
+  background: #cc7a00;
+}
+
+.expert-article {
+  margin-top: 1rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Shopping Grid */
+.shopping-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Shopping Card */
+.shopping-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.shopping-card:hover {
+  transform: translateY(-2px);
+}
+
+.shopping-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.shopping-card h4 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.shopping-card p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.shopping-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: #0099ff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.shopping-card a:hover {
+  background: #007acc;
+}
+
+
+/* Generic error message styling */
+.error-message {
+  color: red;
+  margin-top: 0.5rem;
+}
+
+/* PROFILE WIZARD STYLING */
+.profile-wizard {
+  background: rgba(255,255,255,0.6);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.profile-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-step label {
+  font-weight: 500;
+}
+
+.profile-step input,
+.profile-step select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.profile-step button {
+  background: #00bfff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.profile-step button:hover {
+  background: #007abf;
+}
+
+/* For success/error messages */
+.error-message {
+  color: red;
+  margin-top: 0.5rem;
+}
+.success-message {
+  color: green;
+  margin-top: 0.5rem;
+}
+
+/* AI Advice Box */
+.ai-advice-box {
+  background: #fff;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* 7. PAGE WRAPPER */
+.page-container {
+  max-width: 900px;
+  margin: 80px auto 40px auto;  /* Leaves room for the fixed navbar */
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+/* 8. FOOTER */
+.footer {
+  background: rgba(128, 46, 46, 0.6);
+  padding: 1rem;
+  text-align: center;
+  color: white;
+  margin-top: 2rem;
+}
+
+/* 9. RESPONSIVE */
+@media (max-width: 600px) {
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+  .hero p {
+    font-size: 0.9rem;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
